@@ -8,5 +8,5 @@ txid=$(bitcoin-cli -regtest decoderawtransaction "$transaction" | jq -r '.txid')
 message_hex="627472757374206275696c6465722032303236"
 bitcoin-cli -regtest createrawtransaction \
   '[{"txid":"'"$txid"'","vout":0},{"txid":"'"$txid"'","vout":1}]' \
-  '{"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.2,"'"$change_address"'":0.03678,"data":"'"$message_hex"'"}'
+  '{"data":"'"$message_hex"'","2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.2}'
 
